@@ -180,16 +180,16 @@ map.on('load', function () {
     url: "mapbox://grailmapper.58h47l1s86vq"
   });
   
-  map.addSource("interstatesSecondary", {
+ /* map.addSource("interstatesSecondary", {
     type: "vector",
     url: "mapbox://carledge.interstates-secondary"
-  });
+  }); */
 
 ////////////////MAP LAYERS/////////////////////////////////////////////////////////  
 
 ////////////////TRIPLEX INTERSTATES//////////////////////////////////////////////// 
   
-  map.addLayer({
+/*  map.addLayer({
     id: "triplex-interstates-0",
     type: "line",
     source: "interstatesSecondary",
@@ -275,6 +275,7 @@ map.on('load', function () {
     },
     filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]
     },"duplex-interstates-0");
+    */
 
   ////////////////MAJOR INTERSTATES////////////////////////////////////////////////
       
