@@ -432,7 +432,7 @@ map.on('load', function () {
 
   ////////////////OTHER PRIMARY INTERSTATES////////////////////////////////////////////////
   
-  map.addLayer({
+ /* map.addLayer({
     id: "i-90s-primary",
     type: "line",
     source: "interstatesPrimary",
@@ -581,6 +581,7 @@ map.on('load', function () {
       "line-width": defaultLineWidth
     }
   },"i-10s-primary");
+  */
   
   ////////////////AUXILIARY INTERSTATES////////////////////////////////////////////////
   
