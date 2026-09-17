@@ -156,7 +156,7 @@ for (i = 0; i < 10; i++) {
 
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/carledge/ckkvvjic73m7s18pl38y4n7jb',
+  style: 'mapbox://styles/grailmapper/cmu5zfs2a003501s7bnjg3v3o',
   center: [-98.583333, 39.833333],
   zoom: 3,
   maxZoom: 15,
