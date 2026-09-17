@@ -292,9 +292,10 @@ map.on('load', function () {
       "line-color": colors.signed.major.mainline[9],
       "line-width": defaultLineWidth
     }
-  },"duplex-interstates-1");  
+  //},"duplex-interstates-1");  
+      },); 
   
-  map.addLayer({
+ /* map.addLayer({
     id: "i-80s-major",
     type: "line",
     source: "interstatesPrimary",
@@ -427,7 +428,7 @@ map.on('load', function () {
       "line-color": colors.signed.major.mainline[0],
       "line-width": defaultLineWidth
     }
-  },"i-10s-major");
+  },"i-10s-major"); */
 
   ////////////////OTHER PRIMARY INTERSTATES////////////////////////////////////////////////
   
