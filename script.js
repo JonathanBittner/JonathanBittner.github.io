@@ -582,7 +582,7 @@ map.on('load', function () {
   
   ////////////////AUXILIARY INTERSTATES////////////////////////////////////////////////
   
-  map.addLayer({
+/*  map.addLayer({
     id: "auxiliary-interstates",
     type: "line",
     source: "interstatesSecondary",
@@ -595,11 +595,11 @@ map.on('load', function () {
       "line-color": ["string", ["at", ["get", "routeTensDigit"], ["get", "mainline", ["get", "auxiliary", ["get", "signed", ["literal", colors]]]]]],
       "line-width": defaultLineWidth
     }
-  },"i-00s-primary");
+  },"i-00s-primary"); */
   
   ////////////////UNSIGNED MAINLINE INTERSTATES////////////////////////////////////////////////
   
-  map.addLayer({
+ /* map.addLayer({
     id: "unsigned-interstates",
     type: "line",
     source: "interstatesSecondary",
@@ -613,11 +613,11 @@ map.on('load', function () {
       "line-color": ["string", ["at", ["get", "routeTensDigit"], ["get", "mainline", ["get", ["get", "routeTier"], ["get", "signed", ["literal", colors]]]]]],
       "line-width": defaultLineWidth
     }
-  },"auxiliary-interstates");
+  },"auxiliary-interstates"); */
 
   ////////////////BUSINESS INTERSTATES//////////////////////////////////////////////// 
   
-  map.addLayer({
+ /* map.addLayer({
     id: "business-interstates",
     type: "line",
     source: "interstatesSecondary",
@@ -631,9 +631,9 @@ map.on('load', function () {
       "line-color": ["string", ["at", ["get", "routeTensDigit"], ["literal", businessColors]]],
       "line-width": defaultLineWidth
     }
-  },"unsigned-interstates");
+  },"unsigned-interstates"); */
 
-  map.addLayer({
+ /* map.addLayer({
     id: "unsigned-business-interstates",
     type: "line",
     source: "interstatesSecondary",
@@ -647,11 +647,11 @@ map.on('load', function () {
       "line-color": ["string", ["at", ["get", "routeTensDigit"], ["literal", businessColors]]],
       "line-width": defaultLineWidth
     }
-  },"business-interstates");  
+  },"business-interstates");  */
   
   ////////////////FUTURE INTERSTATES//////////////////////////////////////////////// 
   
-  map.addLayer({
+ /* map.addLayer({
     id: "future-interstates",
     type: "line",
     source: "interstatesSecondary",
@@ -665,7 +665,7 @@ map.on('load', function () {
       "line-color": ["string", ["at", ["get", "routeTensDigit"], ["literal", futureColors]]],
       "line-width": ["*", 1, defaultLineWidth]
     }
-  },"unsigned-business-interstates");
+  },"unsigned-business-interstates"); */
    
 });
 
