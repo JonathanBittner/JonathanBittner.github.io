@@ -7,8 +7,8 @@ mapboxgl.accessToken =
 
 const defaultLineWidth = 2
 
-const layerList = ['triplex-interstates-0','triplex-interstates-1','triplex-interstates-2','duplex-interstates-0','duplex-interstates-1','i-90s-major','i-80s-major','i-70s-major','i-60s-major','i-50s-major','i-40s-major','i-30s-major','i-20s-major','i-10s-major','i-00s-major','i-90s-primary','i-80s-primary','i-70s-primary','i-60s-primary','i-50s-primary','i-40s-primary','i-30s-primary','i-20s-primary','i-10s-primary','i-00s-primary','auxiliary-interstates','unsigned-interstates','business-interstates','unsigned-business-interstates','future-interstates']
-
+//const layerList = ['triplex-interstates-0','triplex-interstates-1','triplex-interstates-2','duplex-interstates-0','duplex-interstates-1','i-90s-major','i-80s-major','i-70s-major','i-60s-major','i-50s-major','i-40s-major','i-30s-major','i-20s-major','i-10s-major','i-00s-major','i-90s-primary','i-80s-primary','i-70s-primary','i-60s-primary','i-50s-primary','i-40s-primary','i-30s-primary','i-20s-primary','i-10s-primary','i-00s-primary','auxiliary-interstates','unsigned-interstates','business-interstates','unsigned-business-interstates','future-interstates']
+const layerList = ['i-90s-major'];
 ////////////////////////DEFINING COLOR PALETTE//////////////////////////
 
 //Base colors, slightly modified from perceptually uniform colors
