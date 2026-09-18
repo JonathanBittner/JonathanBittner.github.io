@@ -8,7 +8,7 @@ mapboxgl.accessToken =
 const defaultLineWidth = 2;
 
 //const layerList = ['triplex-interstates-0','triplex-interstates-1','triplex-interstates-2','duplex-interstates-0','duplex-interstates-1','i-90s-major','i-80s-major','i-70s-major','i-60s-major','i-50s-major','i-40s-major','i-30s-major','i-20s-major','i-10s-major','i-00s-major','i-90s-primary','i-80s-primary','i-70s-primary','i-60s-primary','i-50s-primary','i-40s-primary','i-30s-primary','i-20s-primary','i-10s-primary','i-00s-primary','auxiliary-interstates','unsigned-interstates','business-interstates','unsigned-business-interstates','future-interstates']
-const layerList = ['us-90s-major', 'us-80s-major', 'us-70s-major', 'us-10s-major', 'us-00s-major', 'us-00s-primary'];
+const layerList = ['us-90s-major', 'us-80s-major', 'us-70s-major', 'us-10s-major', 'us-00s-major', 'us-00s-primary', 'us-auxiliary'];
 ////////////////////////DEFINING COLOR PALETTE//////////////////////////
 
 //Base colors, slightly modified from perceptually uniform colors
@@ -207,6 +207,10 @@ map.on('style.load', () => {
 
     map.setPaintProperty('us-00s-primary', 'line-color', colors.signed.primary.mainline[0]);
     map.setPaintProperty('us-00s-primary', 'line-width', defaultLineWidth);
+
+
+    map.setPaintProperty('us-auxiliary', 'line-color', ["string", ["at", ["get", "routeTensDigit"], ["get", "mainline", ["get", "auxiliary", ["get", "signed", ["literal", colors]]]]]]);
+    map.setPaintProperty('us-auxiliary', 'line-width"', defaultLineWidth);
   
      
   }  
@@ -836,12 +840,12 @@ function setAuxiliaryFilter() {
   let filters = ['all',['any'],['any']]
   
   if (!document.getElementById("auxiliary-layers").checked) { 
-    map.setLayoutProperty( "auxiliary-interstates", 'visibility', 'none' )
+    map.setLayoutProperty( "us-auxiliary", 'visibility', 'none' )
   }
   
   else {
   
-    map.setLayoutProperty( "auxiliary-interstates", 'visibility', 'visible' )
+    map.setLayoutProperty( "us-auxiliary", 'visibility', 'visible' )
     
     if (document.getElementById("even-routes").checked) {   
       filters[1].push(evenFilter)
@@ -855,7 +859,7 @@ function setAuxiliaryFilter() {
       }
     }
   }
-  map.setFilter("auxiliary-interstates", filters);
+  map.setFilter("us-auxiliary", filters);
 }
 
 function setBusinessFilter() {
