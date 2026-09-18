@@ -315,8 +315,8 @@ map.addSource("file70", {
     }
   },"i-90s-major"); */
 
-  map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8],
-      'line-width', defaultLineWidth);
+  /*map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8],
+      'line-width', defaultLineWidth); */
    // map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7],
      // 'line-width', defaultLineWidth);
   
