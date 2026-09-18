@@ -186,7 +186,7 @@ map.on('load', () => {
   }); */
 map.addSource("file70", {
   type: "geojson",
-  url: "/new-geojson/us-70s-major.geojson" 
+  url: "https://jonathanbittner.github.io/new-geojson/us-70s-major.geojson" 
 }
 );
 }
