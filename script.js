@@ -316,14 +316,15 @@ map.addSource("file70", {
 
   map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8],
       'line-width', defaultLineWidth);
-    map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7],
+   // map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7],
       'line-width', defaultLineWidth);
   
   
   map.addLayer({
     id: "i-70s-major",
     type: "line",
-    source: "interstatesPrimary",
+    //source: "interstatesPrimary",
+    source: "file70",
     'source-layer': "i-70s-major",
     layout: {
       "line-join": "round",
