@@ -177,7 +177,7 @@ map.on('load', function () {
   
   map.addSource("interstatesPrimary", {
     type: "vector",
-    url: "mapbox://grailmapper.58h47l1s86vq"
+    url: "https://console.mapbox.com/studio/tilesets/grailmapper.58h47l1s86vq"
   });
   
  /* map.addSource("interstatesSecondary", {
