@@ -309,6 +309,10 @@ map.on('load', function () {
       "line-width": defaultLineWidth
     }
   },"i-90s-major"); */
+
+  map.setPaintProperty('us-80s-major', line-color, colors.signed.major.mainline[8],
+      line-width, defaultLineWidth);
+  
   
 /*  map.addLayer({
     id: "i-70s-major",
