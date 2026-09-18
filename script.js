@@ -184,9 +184,10 @@ map.on('styledata', () => {
     type: "vector",
     url: "mapbox://carledge.interstates-secondary"
   }); */
-map.addSource("file70", {
+map.addSource("file80", {
   type: "geojson",
-  url: "https://jonathanbittner.github.io/new-geojson/us-70s-major.geojson" 
+  //url: "https://jonathanbittner.github.io/new-geojson/us-70s-major.geojson" 
+  url: "geojson-source/interstates-primary/transformed/i-80s-major-transformed.geojson"
   }
   );
   }  
