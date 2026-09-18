@@ -190,11 +190,7 @@ map.on('styledata', () => {
   url: "geojson-source/interstates-primary/transformed/i-80s-major-transformed.geojson"
   }
   */
-  map.addSource("interstatesPrimary", {
-    type: "vector",
-    url: "mapbox://grailmapper.58h47l1s86vq"
-  }                
-  );
+
   }  
 );
 ////////////////MAP LAYERS/////////////////////////////////////////////////////////  
