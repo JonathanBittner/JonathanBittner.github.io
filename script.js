@@ -184,7 +184,11 @@ map.on('load', function () {
     type: "vector",
     url: "mapbox://carledge.interstates-secondary"
   }); */
-
+map.addSource("file70", {
+  type: "geojson",
+  url: "/new-geojson/us-70s-major.geojson" 
+}
+);
 ////////////////MAP LAYERS/////////////////////////////////////////////////////////  
 
 ////////////////TRIPLEX INTERSTATES//////////////////////////////////////////////// 
@@ -316,7 +320,7 @@ map.on('load', function () {
       'line-width', defaultLineWidth);
   
   
-/*  map.addLayer({
+  map.addLayer({
     id: "i-70s-major",
     type: "line",
     source: "interstatesPrimary",
@@ -330,7 +334,8 @@ map.on('load', function () {
       "line-width": defaultLineWidth
     }
   },"i-80s-major");
-  
+
+  /*
    map.addLayer({
     id: "i-60s-major",
     type: "line",
