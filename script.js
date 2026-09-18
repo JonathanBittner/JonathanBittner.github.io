@@ -173,7 +173,7 @@ var map = new mapboxgl.Map({
 map.touchZoomRotate.enable();
 map.touchZoomRotate.disableRotation();
 
-map.on('load', function () {
+map.on('load', () => {
   
   /*map.addSource("interstatesPrimary", {
     type: "vector",
@@ -189,6 +189,7 @@ map.addSource("file70", {
   url: "/new-geojson/us-70s-major.geojson" 
 }
 );
+}
 ////////////////MAP LAYERS/////////////////////////////////////////////////////////  
 
 ////////////////TRIPLEX INTERSTATES//////////////////////////////////////////////// 
