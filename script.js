@@ -324,7 +324,7 @@ map.on('style.load', () => {
      // 'line-width', defaultLineWidth);
   
   
-  map.addLayer({
+  /*map.addLayer({
     id: "i-70s-major",
     type: "line",
     //source: "interstatesPrimary",
@@ -338,7 +338,7 @@ map.on('style.load', () => {
       "line-color": colors.signed.major.mainline[7],
       "line-width": defaultLineWidth
     }
-  },"i-80s-major");
+  },"i-80s-major"); */
 
   /*
    map.addLayer({
