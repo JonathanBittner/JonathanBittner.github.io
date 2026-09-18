@@ -210,7 +210,7 @@ map.on('style.load', () => {
 
 
     map.setPaintProperty('us-auxiliary', 'line-color', ["string", ["at", ["get", "routeTensDigit"], ["get", "mainline", ["get", "auxiliary", ["get", "signed", ["literal", colors]]]]]]);
-    map.setPaintProperty('us-auxiliary', 'line-width"', defaultLineWidth);
+    map.setPaintProperty('us-auxiliary', 'line-width', defaultLineWidth);
   
      
   }  
