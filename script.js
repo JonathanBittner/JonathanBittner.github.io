@@ -190,14 +190,19 @@ map.on('style.load', () => {
   url: "geojson-source/interstates-primary/transformed/i-80s-major-transformed.geojson"
   }
   */
+    map.setPaintProperty('us-90s-major', 'line-color', colors.signed.major.mainline[9],
+      'line-width', defaultLineWidth); 
     map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8],
       'line-width', defaultLineWidth); 
    map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7],
      'line-width', defaultLineWidth);
    map.setPaintProperty('us-00s-major', 'line-color', colors.signed.major.mainline[0],
       'line-width', defaultLineWidth);
-  
 
+   map.setPaintProperty('us-00s-primary', 'line-color', colors.signed.major.mainline[0],
+      'line-width', defaultLineWidth);
+  
+     
   }  
 );
 ////////////////MAP LAYERS/////////////////////////////////////////////////////////  
@@ -607,8 +612,8 @@ map.on('style.load', () => {
     }
   },"i-10s-primary");
   */
-      map.setPaintProperty('us-00s-primary', 'line-color', colors.signed.major.mainline[0],
-      'line-width', defaultLineWidth);
+      //map.setPaintProperty('us-00s-primary', 'line-color', colors.signed.major.mainline[0],
+      //'line-width', defaultLineWidth);
   ////////////////AUXILIARY INTERSTATES////////////////////////////////////////////////
   
 /*  map.addLayer({
