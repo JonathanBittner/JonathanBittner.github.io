@@ -190,6 +190,13 @@ map.on('style.load', () => {
   url: "geojson-source/interstates-primary/transformed/i-80s-major-transformed.geojson"
   }
   */
+    map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8],
+      'line-width', defaultLineWidth); 
+   map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7],
+     'line-width', defaultLineWidth);
+   map.setPaintProperty('us-00s-major', 'line-color', colors.signed.major.mainline[0],
+      'line-width', defaultLineWidth);
+  
 
   }  
 );
@@ -446,8 +453,7 @@ map.on('style.load', () => {
     }
   },"i-10s-major"); */
 
-      map.setPaintProperty('us-00s-major', 'line-color', colors.signed.major.mainline[0],
-      'line-width', defaultLineWidth);
+
 
   ////////////////OTHER PRIMARY INTERSTATES////////////////////////////////////////////////
   
