@@ -5,7 +5,7 @@ mapboxgl.accessToken =
 
 /////////////////////////GLOBAL VARIABLES////////////////////////
 
-const defaultLineWidth = 5
+const defaultLineWidth = 2;
 
 //const layerList = ['triplex-interstates-0','triplex-interstates-1','triplex-interstates-2','duplex-interstates-0','duplex-interstates-1','i-90s-major','i-80s-major','i-70s-major','i-60s-major','i-50s-major','i-40s-major','i-30s-major','i-20s-major','i-10s-major','i-00s-major','i-90s-primary','i-80s-primary','i-70s-primary','i-60s-primary','i-50s-primary','i-40s-primary','i-30s-primary','i-20s-primary','i-10s-primary','i-00s-primary','auxiliary-interstates','unsigned-interstates','business-interstates','unsigned-business-interstates','future-interstates']
 const layerList = ['us-90s-major', 'us-80s-major', 'us-70s-major', 'us-00s-major', 'us-00s-primary'];
@@ -192,15 +192,18 @@ map.on('style.load', () => {
   */
     map.setPaintProperty('us-90s-major', 'line-color', colors.signed.major.mainline[9]);
     map.setPaintProperty('us-90s-major', 'line-width', defaultLineWidth); 
+  
     map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8])
     map.setPaintProperty('us-80s-major', 'line-width', defaultLineWidth); 
-    map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7],
-     'line-width', defaultLineWidth);
-    map.setPaintProperty('us-00s-major', 'line-color', colors.signed.major.mainline[0],
-      'line-width', defaultLineWidth);
+  
+    map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7]);
+    map.setPaintProperty('us-70s-major', 'line-width', defaultLineWidth);
+  
+    map.setPaintProperty('us-00s-major', 'line-color', colors.signed.major.mainline[0]);
+    map.setPaintProperty('us-00s-major','line-width', defaultLineWidth);
 
-   map.setPaintProperty('us-00s-primary', 'line-color', colors.signed.major.mainline[0],
-      'line-width', defaultLineWidth);
+    map.setPaintProperty('us-00s-primary', 'line-color', colors.signed.major.mainline[0]);
+    map.setPaintProperty('us-00s-primary', 'line-width', defaultLineWidth);
   
      
   }  
