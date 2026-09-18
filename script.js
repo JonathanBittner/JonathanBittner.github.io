@@ -173,7 +173,7 @@ var map = new mapboxgl.Map({
 map.touchZoomRotate.enable();
 map.touchZoomRotate.disableRotation();
 
-map.on('load', () => {
+map.on('styledata', () => {
   
   /*map.addSource("interstatesPrimary", {
     type: "vector",
