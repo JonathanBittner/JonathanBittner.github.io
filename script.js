@@ -175,10 +175,10 @@ map.touchZoomRotate.disableRotation();
 
 map.on('load', function () {
   
-  map.addSource("interstatesPrimary", {
+  /*map.addSource("interstatesPrimary", {
     type: "vector",
     url: "https://console.mapbox.com/studio/tilesets/grailmapper.58h47l1s86vq"
-  });
+  });*/
   
  /* map.addSource("interstatesSecondary", {
     type: "vector",
@@ -279,7 +279,7 @@ map.on('load', function () {
 
   ////////////////MAJOR INTERSTATES////////////////////////////////////////////////
       
-  map.addLayer({
+ /* map.addLayer({
     id: 'i-90s-major',
     type: "line",
     source: "interstatesPrimary",
@@ -293,12 +293,12 @@ map.on('load', function () {
       "line-width": defaultLineWidth
     }
   //},"duplex-interstates-1");  
-      },); 
+      },); */
   
- map.addLayer({
-    id: "i-80s-major",
+/* map.addLayer({
+    id: "us-80s-major",
     type: "line",
-    source: "interstatesPrimary",
+    //source: "interstatesPrimary",
     'source-layer': "i-80s-major",
     layout: {
       "line-join": "round",
@@ -308,7 +308,7 @@ map.on('load', function () {
       "line-color": colors.signed.major.mainline[8],
       "line-width": defaultLineWidth
     }
-  },"i-90s-major");
+  },"i-90s-major"); */
   
 /*  map.addLayer({
     id: "i-70s-major",
