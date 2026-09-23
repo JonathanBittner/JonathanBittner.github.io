@@ -191,7 +191,33 @@ map.on('style.load', () => {
   url: "geojson-source/interstates-primary/transformed/i-80s-major-transformed.geojson"
   }
   */
+    map.setPaintProperty('us-90s-major', 'line-color', colors.signed.major.mainline[9]);
+    map.setPaintProperty('us-90s-major', 'line-width', defaultLineWidth); 
   
+    map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8])
+    map.setPaintProperty('us-80s-major', 'line-width', defaultLineWidth); 
+  
+    map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7]);
+    map.setPaintProperty('us-70s-major', 'line-width', defaultLineWidth);
+	
+	map.setPaintProperty('us-20s-major', 'line-color', colors.signed.major.mainline[2]);
+    map.setPaintProperty('us-20s-major','line-width', defaultLineWidth);
+
+    map.setPaintProperty('us-10s-major', 'line-color', colors.signed.major.mainline[1]);
+    map.setPaintProperty('us-10s-major','line-width', defaultLineWidth);
+  
+    map.setPaintProperty('us-00s-major', 'line-color', colors.signed.major.mainline[0]);
+    map.setPaintProperty('us-00s-major','line-width', defaultLineWidth);
+	
+	map.setPaintProperty('us-10s-primary', 'line-color', colors.signed.primary.mainline[1]);
+    map.setPaintProperty('us-10s-primary', 'line-width', defaultLineWidth);
+
+    map.setPaintProperty('us-00s-primary', 'line-color', colors.signed.primary.mainline[0]);
+    map.setPaintProperty('us-00s-primary', 'line-width', defaultLineWidth);
+
+
+    map.setPaintProperty('us-auxiliary', 'line-color', ["string", ["at", ["get", "routeTensDigit"], ["get", "mainline", ["get", "auxiliary", ["get", "signed", ["literal", colors]]]]]]);
+    map.setPaintProperty('us-auxiliary', 'line-width', defaultLineWidth);
   
   map.addLayer({
     id: "triplex-us-0",
@@ -209,7 +235,7 @@ map.on('style.load', () => {
     },
     filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
 	["==", ["get", "route2_role"], "mainline"]]
-    }, 'us-00s-major');
+    });
 	
 	map.addLayer({
 		id: "triplex-us-1",
@@ -287,33 +313,7 @@ map.on('style.load', () => {
 	//map.setPaintProperty('us-duplex', 'line-offset', 0);
 	//map.setPaintProperty('us-duplex', 'line-width', ["*", 1, defaultLineWidth]);
 	
-    map.setPaintProperty('us-90s-major', 'line-color', colors.signed.major.mainline[9]);
-    map.setPaintProperty('us-90s-major', 'line-width', defaultLineWidth); 
-  
-    map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8])
-    map.setPaintProperty('us-80s-major', 'line-width', defaultLineWidth); 
-  
-    map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7]);
-    map.setPaintProperty('us-70s-major', 'line-width', defaultLineWidth);
-	
-	map.setPaintProperty('us-20s-major', 'line-color', colors.signed.major.mainline[2]);
-    map.setPaintProperty('us-20s-major','line-width', defaultLineWidth);
 
-    map.setPaintProperty('us-10s-major', 'line-color', colors.signed.major.mainline[1]);
-    map.setPaintProperty('us-10s-major','line-width', defaultLineWidth);
-  
-    map.setPaintProperty('us-00s-major', 'line-color', colors.signed.major.mainline[0]);
-    map.setPaintProperty('us-00s-major','line-width', defaultLineWidth);
-	
-	map.setPaintProperty('us-10s-primary', 'line-color', colors.signed.primary.mainline[1]);
-    map.setPaintProperty('us-10s-primary', 'line-width', defaultLineWidth);
-
-    map.setPaintProperty('us-00s-primary', 'line-color', colors.signed.primary.mainline[0]);
-    map.setPaintProperty('us-00s-primary', 'line-width', defaultLineWidth);
-
-
-    map.setPaintProperty('us-auxiliary', 'line-color', ["string", ["at", ["get", "routeTensDigit"], ["get", "mainline", ["get", "auxiliary", ["get", "signed", ["literal", colors]]]]]]);
-    map.setPaintProperty('us-auxiliary', 'line-width', defaultLineWidth);
 	
 	
   
