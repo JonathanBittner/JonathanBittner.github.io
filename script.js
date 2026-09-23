@@ -195,8 +195,8 @@ map.on('style.load', () => {
   map.addLayer({
     id: "triplex-us-0",
     type: "line",
-    source: "us-triplex",
-    //'source-layer': "us-triplex",
+    source: "mapbox://grailmapper.58h47l1s86vq",
+    'source-layer': "us-triplex",
     layout: {
       "line-join": "round",
       "line-cap": "round"
@@ -207,13 +207,13 @@ map.on('style.load', () => {
       "line-width": ["*", 1, defaultLineWidth]
     },
     filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"], ["==", ["get", "route2_role"], "mainline"]]
-    },"road-label");
+    });
 	
 	map.addLayer({
 		id: "triplex-us-1",
 		type: "line",
-		source: "us-triplex",
-		//'source-layer': "triplex-interstates",
+		source: "mapbox://grailmapper.58h47l1s86vq",
+		'source-layer': "us-triplex",
 		layout: {
 		"line-join": "round",
 		"line-cap": "round"
@@ -229,8 +229,8 @@ map.on('style.load', () => {
 	map.addLayer({
 		id: "triplex-us-2",
 		type: "line",
-		source: "us-triplex",
-		//'source-layer': "triplex-interstates",
+		source: "mapbox://grailmapper.58h47l1s86vq",
+		'source-layer': "us-triplex",
 		layout: {
 		"line-join": "round",
 		"line-cap": "round"
