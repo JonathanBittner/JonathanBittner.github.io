@@ -209,7 +209,7 @@ map.on('style.load', () => {
     },
     filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
 	["==", ["get", "route2_role"], "mainline"]]
-    });
+    }, 'us-00s-major');
 	
 	map.addLayer({
 		id: "triplex-us-1",
