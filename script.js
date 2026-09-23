@@ -247,9 +247,9 @@ map.on('style.load', () => {
 	//map.setPaintProperty('us-triplex', 'line-width', ["*", 1, defaultLineWidth]);
 							 
   
-	map.setPaintProperty('us-duplex', 'line-color', ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
-	map.setPaintProperty('us-duplex', 'line-offset', 0);
-	map.setPaintProperty('us-duplex', 'line-width', ["*", 1, defaultLineWidth]);
+	//map.setPaintProperty('us-duplex', 'line-color', ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
+	//map.setPaintProperty('us-duplex', 'line-offset', 0);
+	//map.setPaintProperty('us-duplex', 'line-width', ["*", 1, defaultLineWidth]);
 	
     map.setPaintProperty('us-90s-major', 'line-color', colors.signed.major.mainline[9]);
     map.setPaintProperty('us-90s-major', 'line-width', defaultLineWidth); 
