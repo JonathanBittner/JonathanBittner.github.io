@@ -848,17 +848,17 @@ function setMajorFilter() {
   if (!document.getElementById("major-layers").checked) { 
     
     for (let i = 0; i < 10; i++) {
-      map.setLayoutProperty( "i-" + i + "0s-major", 'visibility', 'none' );
+      map.setLayoutProperty( "us-" + i + "0s-major", 'visibility', 'none' );
     }
   }
   
   else {   
     for (let i = 0; i < 10; i++) {
       if (!document.getElementById("routes-" + i + "0").checked) {
-        map.setLayoutProperty( "i-" + i + "0s-major", 'visibility', 'none' );
+        map.setLayoutProperty( "us-" + i + "0s-major", 'visibility', 'none' );
       }
       else {
-        map.setLayoutProperty( "i-" + i + "0s-major", 'visibility', 'visible' );
+        map.setLayoutProperty( "us-" + i + "0s-major", 'visibility', 'visible' );
    
         if (document.getElementById("even-routes").checked) {   
           filters[1].push(evenFilter)
@@ -879,7 +879,7 @@ function setPrimaryFilter() {
   if (!document.getElementById("primary-layers").checked) { 
     
     for (let i = 0; i < 10; i++) {
-      map.setLayoutProperty( "i-" + i + "0s-primary", 'visibility', 'none' );
+      map.setLayoutProperty( "us-" + i + "0s-primary", 'visibility', 'none' );
     }
   }
   
@@ -887,10 +887,10 @@ function setPrimaryFilter() {
     
     for (let i = 0; i < 10; i++) {
       if (!document.getElementById("routes-" + i + "0").checked) {
-        map.setLayoutProperty( "i-" + i + "0s-primary", 'visibility', 'none' );
+        map.setLayoutProperty( "us-" + i + "0s-primary", 'visibility', 'none' );
       }
       else {
-        map.setLayoutProperty( "i-" + i + "0s-primary", 'visibility', 'visible' );
+        map.setLayoutProperty( "us-" + i + "0s-primary", 'visibility', 'visible' );
    
         if (document.getElementById("even-routes").checked) {   
           filters[1].push(evenFilter)
@@ -898,7 +898,7 @@ function setPrimaryFilter() {
         if (document.getElementById("odd-routes").checked) {   
           filters[1].push(oddFilter)
         }
-        map.setFilter("i-" + i + "0s-primary", filters);
+        map.setFilter("us-" + i + "0s-primary", filters);
       }
     }
   }
@@ -1175,9 +1175,9 @@ function setTriplexFilter() {
     }
   }
   
-  map.setFilter("triplex-interstates-0", filters);
-  map.setFilter("triplex-interstates-1", filters);
-  map.setFilter("triplex-interstates-2", filters);
+  map.setFilter("triplex-us-0", filters);
+  map.setFilter("triplex-us-1", filters);
+  map.setFilter("triplex-us-2", filters);
 }
 
 function setDuplexFilter() {
