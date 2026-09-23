@@ -167,7 +167,8 @@ var map = new mapboxgl.Map({
   touchPitch: false,
   logoPosition: 'bottom-right',
   attributionControl: false,
-  renderWorldCopies: false
+  renderWorldCopies: false,
+  devtools: true
 });
 
 map.touchZoomRotate.enable();
@@ -206,7 +207,8 @@ map.on('style.load', () => {
       "line-offset": 0,
       "line-width": ["*", 1, defaultLineWidth]
     },
-    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"], ["==", ["get", "route2_role"], "mainline"]]
+    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
+	["==", ["get", "route2_role"], "mainline"]]
     });
 	
 	map.addLayer({
