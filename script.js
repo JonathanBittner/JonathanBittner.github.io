@@ -203,7 +203,7 @@ map.on('style.load', () => {
       "line-cap": "round"
     },
     paint: {
-      "line-color": ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]],
+      "line-color": ["string", ["at", ["to-number", ["get", "route0_tensDigit"]], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]],
       "line-offset": 0,
       "line-width": ["*", 1, defaultLineWidth]
     },
