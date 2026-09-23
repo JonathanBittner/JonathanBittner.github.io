@@ -242,6 +242,40 @@ map.on('style.load', () => {
 		},
 		filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"], ["==", ["get", "route2_role"], "mainline"]]
     },"triplex-us-1");
+	
+	  map.addLayer({
+    id: "duplex-us-0",
+    type: "line",
+    source: "mapbox://grailmapper.58h47l1s86vq",
+    'source-layer': "7e0f13e8a1c122b50b79",
+    layout: {
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    paint: {
+     "line-color": ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]],
+      "line-offset": 0,
+      "line-width": ["*", 1, defaultLineWidth]
+    },
+    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]
+    },"triplex-us-2");
+  
+    map.addLayer({
+    id: "duplex-us-1",
+    type: "line",
+	source: "mapbox://grailmapper.58h47l1s86vq",
+    'source-layer': "7e0f13e8a1c122b50b79",
+    layout: {
+      "line-join": "round",
+      "line-cap": "round"
+    },
+    paint: {
+      "line-color": ["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]],
+      "line-offset": ["*", 1, defaultLineWidth],
+      "line-width": ["*", 1, defaultLineWidth]
+    },
+    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]
+    },"duplex-us-0");
   	//map.setPaintProperty('us-triplex', 'line-color', "string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
 	//map.setPaintProperty('us-triplex', 'line-offset', 0);
 	//map.setPaintProperty('us-triplex', 'line-width', ["*", 1, defaultLineWidth]);
@@ -1289,8 +1323,8 @@ function setDuplexFilter() {
     }
   }
   
-  map.setFilter("duplex-interstates-0", filters)
-  map.setFilter("duplex-interstates-1", filters)
+  map.setFilter("duplex-us-0", filters)
+  map.setFilter("duplex-us-1", filters)
 }
 
 function setAllFilters() {
