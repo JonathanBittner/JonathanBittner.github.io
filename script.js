@@ -196,7 +196,7 @@ map.on('style.load', () => {
     id: "triplex-us-0",
     type: "line",
     source: "mapbox://grailmapper.58h47l1s86vq",
-    'source-layer': "us-triplex",
+    'source-layer': "5101f71b562e7b179537",
     layout: {
       "line-join": "round",
       "line-cap": "round"
@@ -213,7 +213,7 @@ map.on('style.load', () => {
 		id: "triplex-us-1",
 		type: "line",
 		source: "mapbox://grailmapper.58h47l1s86vq",
-		'source-layer': "us-triplex",
+		'source-layer': "5101f71b562e7b179537",
 		layout: {
 		"line-join": "round",
 		"line-cap": "round"
@@ -230,7 +230,7 @@ map.on('style.load', () => {
 		id: "triplex-us-2",
 		type: "line",
 		source: "mapbox://grailmapper.58h47l1s86vq",
-		'source-layer': "us-triplex",
+		'source-layer': "5101f71b562e7b179537",
 		layout: {
 		"line-join": "round",
 		"line-cap": "round"
