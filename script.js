@@ -8,7 +8,7 @@ mapboxgl.accessToken =
 const defaultLineWidth = 2;
 
 //const layerList = ['triplex-interstates-0','triplex-interstates-1','triplex-interstates-2','duplex-us-0','duplex-us-1','i-90s-major','i-80s-major','i-70s-major','i-60s-major','i-50s-major','i-40s-major','i-30s-major','i-20s-major','i-10s-major','i-00s-major','i-90s-primary','i-80s-primary','i-70s-primary','i-60s-primary','i-50s-primary','i-40s-primary','i-30s-primary','i-20s-primary','i-10s-primary','i-00s-primary','auxiliary-interstates','unsigned-interstates','business-interstates','unsigned-business-interstates','future-interstates']
-const layerList = ['triplex-us-0', 'triplex-us-1', 'triplex-us-2', 'us-duplex', 'us-90s-major', 'us-80s-major', 'us-70s-major', 'us-20s-major','us-10s-major', 'us-00s-major', 'us-10s-primary', 'us-00s-primary', 'us-auxiliary'];
+const layerList = ['us-triplex-1', 'us-triplex-2', 'us-triplex-3', 'us-duplex-1',  'us-duplex-2', 'us-90s-major', 'us-80s-major', 'us-70s-major', 'us-20s-major','us-10s-major', 'us-00s-major', 'us-10s-primary', 'us-00s-primary', 'us-auxiliary'];
 ////////////////////////DEFINING COLOR PALETTE//////////////////////////
 
 //Base colors, slightly modified from perceptually uniform colors
@@ -191,8 +191,8 @@ map.on('style.load', () => {
   url: "geojson-source/interstates-primary/transformed/i-80s-major-transformed.geojson"
   }
   */
-   // map.setPaintProperty('us-90s-major', 'line-color', colors.signed.major.mainline[9]);
-    //map.setPaintProperty('us-90s-major', 'line-width', defaultLineWidth); 
+    map.setPaintProperty('us-90s-major', 'line-color', colors.signed.major.mainline[9]);
+    map.setPaintProperty('us-90s-major', 'line-width', defaultLineWidth); 
   
     map.setPaintProperty('us-80s-major', 'line-color', colors.signed.major.mainline[8])
     map.setPaintProperty('us-80s-major', 'line-width', defaultLineWidth); 
@@ -219,116 +219,34 @@ map.on('style.load', () => {
     map.setPaintProperty('us-auxiliary', 'line-color', ["string", ["at", ["get", "routeTensDigit"], ["get", "mainline", ["get", "auxiliary", ["get", "signed", ["literal", colors]]]]]]);
     map.setPaintProperty('us-auxiliary', 'line-width', defaultLineWidth);
 
-	map.addLayer({
-    id: 'us-90s-major',
-    type: "line",
-	source: "mapbox://grailmapper.58h47l1s86vq", 
-	'source-layer': "38541cf09a75ed4ea965",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    'paint': {
-      "line-color": colors.signed.major.mainline[9],
-      "line-width": defaultLineWidth
-    },
-		'slot': "middle",
-  }); 
-  
-  map.addLayer({
-    id: "triplex-us-0",
-    type: "line",
-    source: "mapbox://grailmapper.58h47l1s86vq",
-    'source-layer': "5101f71b562e7b179537",
-    'layout': {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    'paint': {
-      "line-color": ["string", ["at", ["to-number", ["get", "route0_tensDigit"]], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]],
-      "line-offset": 0,
-      "line-width": ["*", 1, defaultLineWidth]
-    },
-    'filter': ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
-	["==", ["get", "route2_role"], "mainline"]],
-	slot: "middle"
-	});
+	map.addFilter('us-duplex-1', ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]);
+	map.setPaintProperty('us-duplex-1',  "line-color", ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
+    map.setPaintProperty('us-duplex-1', "line-offset", 0);
+    map.setPaintProperty('us-duplex-1',"line-width", ["*", 1, defaultLineWidth]);
+
+	map.addFilter('us-duplex-2', ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]);
+	map.setPaintProperty('us-duplex-2', "line-color",["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]]);
+	map.setPaintProperty('us-duplex-2', "line-offset": ["*", 1, defaultLineWidth]);
+    map.setPaintProperty('us-duplex-2',"line-width": ["*", 1, defaultLineWidth]);
+
+	map.addFilter('us-triplex-1',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
+	["==", ["get", "route2_role"], "mainline"]]);
+	map.setPaintProperty('us-triplex-1',  "line-color", ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
+    map.setPaintProperty('us-triplex-1', "line-offset", 0);
+    map.setPaintProperty('us-triplex-1',"line-width", ["*", 1, defaultLineWidth]);
 	
-	map.addLayer({
-		id: "triplex-us-1",
-		type: "line",
-		source: "mapbox://grailmapper.58h47l1s86vq",
-		'source-layer': "5101f71b562e7b179537",
-		layout: {
-		"line-join": "round",
-		"line-cap": "round"
-		},
-		paint: {
-		"line-color": ["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]],
-		"line-offset": ["*", 1, defaultLineWidth],
-		"line-width": ["*", 1, defaultLineWidth]
-		},
-		filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"], ["==", ["get", "route2_role"], "mainline"]]
-		},"triplex-us-0");
-	
-	map.addLayer({
-		id: "triplex-us-2",
-		type: "line",
-		source: "mapbox://grailmapper.58h47l1s86vq",
-		'source-layer': "5101f71b562e7b179537",
-		layout: {
-		"line-join": "round",
-		"line-cap": "round"
-		},
-		paint: {
-		"line-color": ["string", ["at", ["get", "route2_tensDigit"], ["get", ["get", "route2_role"], ["get", ["get", "route2_tier"], ["get", ["get", "route2_status"], ["literal", colors]]]]]],
-		"line-offset": ["*", 2, defaultLineWidth],
-		"line-width": ["*", 1, defaultLineWidth]
-		},
-		filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"], ["==", ["get", "route2_role"], "mainline"]]
-    },"triplex-us-1");
-	
-	map.addLayer({
-    id: "duplex-us-0",
-    type: "line",
-    source: "mapbox://grailmapper.58h47l1s86vq",
-    'source-layer': "7e0f13e8a1c122b50b79",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    paint: {
-     "line-color": "#FF0000",//["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]],
-      "line-offset": 0,
-      "line-width": ["*", 1, defaultLineWidth]
-    },
-    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]
-    },"triplex-us-2");
-  
-    map.addLayer({
-    id: "duplex-us-1",
-    type: "line",
-	source: "mapbox://grailmapper.58h47l1s86vq",
-    'source-layer': "7e0f13e8a1c122b50b79",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    paint: {
-      "line-color": "#0000FF",//["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]],
-      "line-offset": ["*", 1, defaultLineWidth],
-      "line-width": ["*", 1, defaultLineWidth]
-    },
-    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]
-    },"duplex-us-0");
-  	//map.setPaintProperty('us-triplex', 'line-color', "string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
-	//map.setPaintProperty('us-triplex', 'line-offset', 0);
-	//map.setPaintProperty('us-triplex', 'line-width', ["*", 1, defaultLineWidth]);
-							 
-  
-	//map.setPaintProperty('us-duplex', 'line-color', ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
-	//map.setPaintProperty('us-duplex', 'line-offset', 0);
-	//map.setPaintProperty('us-duplex', 'line-width', ["*", 1, defaultLineWidth]);
+  	map.addFilter('us-triplex-2',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
+	["==", ["get", "route2_role"], "mainline"]]);
+	map.setPaintProperty('us-triplex-2',  "line-color",["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]]);
+    map.setPaintProperty('us-triplex-2', "line-offset", ["*", 1, defaultLineWidth]);
+    map.setPaintProperty('us-triplex-2',"line-width", ["*", 1, defaultLineWidth]);
+
+	map.addFilter('us-triplex-3',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
+	["==", ["get", "route2_role"], "mainline"]]);
+	map.setPaintProperty('us-triplex-3',  "line-color",["string", ["at", ["get", "route2_tensDigit"], ["get", ["get", "route2_role"], ["get", ["get", "route2_tier"], ["get", ["get", "route2_status"], ["literal", colors]]]]]]);
+    map.setPaintProperty('us-triplex-3', "line-offset", ["*", 2, defaultLineWidth]);
+    map.setPaintProperty('us-triplex-3',"line-width", ["*", 1, defaultLineWidth]);
+
 	
 
 	
@@ -1228,9 +1146,9 @@ function setTriplexFilter() {
     }
   }
   
-  map.setFilter("triplex-us-0", filters);
-  map.setFilter("triplex-us-1", filters);
-  map.setFilter("triplex-us-2", filters);
+  map.setFilter("us-triplex-1", filters);
+  map.setFilter("us-triplex-2", filters);
+  map.setFilter("us-triplex-3", filters);
 }
 
 function setDuplexFilter() {
@@ -1342,8 +1260,8 @@ function setDuplexFilter() {
     }
   }
   
-  map.setFilter("duplex-us-0", filters)
-  map.setFilter("duplex-us-1", filters)
+  map.setFilter("us-duplex-1", filters)
+  map.setFilter("us-duplex-2", filters)
 }
 
 function setAllFilters() {
