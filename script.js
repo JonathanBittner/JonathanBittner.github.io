@@ -219,29 +219,29 @@ map.on('style.load', () => {
     map.setPaintProperty('us-auxiliary', 'line-color', ["string", ["at", ["get", "routeTensDigit"], ["get", "mainline", ["get", "auxiliary", ["get", "signed", ["literal", colors]]]]]]);
     map.setPaintProperty('us-auxiliary', 'line-width', defaultLineWidth);
 
-	map.addFilter('us-duplex-1', ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]);
+	map.setFilter('us-duplex-1', ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]);
 	map.setPaintProperty('us-duplex-1',  "line-color", ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
     map.setPaintProperty('us-duplex-1', "line-offset", 0);
     map.setPaintProperty('us-duplex-1',"line-width", ["*", 1, defaultLineWidth]);
 
-	map.addFilter('us-duplex-2', ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]);
+	map.setFilter('us-duplex-2', ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]);
 	map.setPaintProperty('us-duplex-2', "line-color",["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]]);
 	map.setPaintProperty('us-duplex-2', "line-offset", ["*", 1, defaultLineWidth]);
     map.setPaintProperty('us-duplex-2',"line-width", ["*", 1, defaultLineWidth]);
 
-	map.addFilter('us-triplex-1',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
+	map.setFilter('us-triplex-1',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
 	["==", ["get", "route2_role"], "mainline"]]);
 	map.setPaintProperty('us-triplex-1',  "line-color", ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]]);
     map.setPaintProperty('us-triplex-1', "line-offset", 0);
     map.setPaintProperty('us-triplex-1',"line-width", ["*", 1, defaultLineWidth]);
 	
-  	map.addFilter('us-triplex-2',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
+  	map.setFilter('us-triplex-2',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
 	["==", ["get", "route2_role"], "mainline"]]);
 	map.setPaintProperty('us-triplex-2',  "line-color",["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]]);
     map.setPaintProperty('us-triplex-2', "line-offset", ["*", 1, defaultLineWidth]);
     map.setPaintProperty('us-triplex-2',"line-width", ["*", 1, defaultLineWidth]);
 
-	map.addFilter('us-triplex-3',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
+	map.setFilter('us-triplex-3',['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"],
 	["==", ["get", "route2_role"], "mainline"]]);
 	map.setPaintProperty('us-triplex-3',  "line-color",["string", ["at", ["get", "route2_tensDigit"], ["get", ["get", "route2_role"], ["get", ["get", "route2_tier"], ["get", ["get", "route2_status"], ["literal", colors]]]]]]);
     map.setPaintProperty('us-triplex-3', "line-offset", ["*", 2, defaultLineWidth]);
