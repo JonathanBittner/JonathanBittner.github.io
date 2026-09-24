@@ -200,6 +200,12 @@ map.on('style.load', () => {
     map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7]);
     map.setPaintProperty('us-70s-major', 'line-width', defaultLineWidth);
 	
+	map.setPaintProperty('us-50s-major', 'line-color', colors.signed.major.mainline[5]);
+    map.setPaintProperty('us-50s-major','line-width', defaultLineWidth);
+	
+	map.setPaintProperty('us-40s-major', 'line-color', colors.signed.major.mainline[4]);
+    map.setPaintProperty('us-40s-major','line-width', defaultLineWidth);
+	
 	map.setPaintProperty('us-30s-major', 'line-color', colors.signed.major.mainline[3]);
     map.setPaintProperty('us-30s-major','line-width', defaultLineWidth);
 	
