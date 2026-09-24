@@ -8,7 +8,7 @@ mapboxgl.accessToken =
 const defaultLineWidth = 2;
 
 //const layerList = ['triplex-interstates-0','triplex-interstates-1','triplex-interstates-2','duplex-us-0','duplex-us-1','i-90s-major','i-80s-major','i-70s-major','i-60s-major','i-50s-major','i-40s-major','i-30s-major','i-20s-major','i-10s-major','i-00s-major','i-90s-primary','i-80s-primary','i-70s-primary','i-60s-primary','i-50s-primary','i-40s-primary','i-30s-primary','i-20s-primary','i-10s-primary','i-00s-primary','auxiliary-interstates','unsigned-interstates','business-interstates','unsigned-business-interstates','future-interstates']
-const layerList = ['us-triplex-1', 'us-triplex-2', 'us-triplex-3', 'us-duplex-1',  'us-duplex-2', 'us-101-major', 'us-90s-major', 'us-80s-major', 'us-70s-major', 'us-20s-major','us-10s-major', 'us-00s-major', 'us-10s-primary', 'us-00s-primary', 'us-auxiliary'];
+const layerList = ['us-triplex-1', 'us-triplex-2', 'us-triplex-3', 'us-duplex-1',  'us-duplex-2', 'us-101-major', 'us-90s-major', 'us-80s-major', 'us-70s-major', 'us-30s-major', 'us-20s-major','us-10s-major', 'us-00s-major', 'us-40s-primary', 'us-10s-primary', 'us-00s-primary', 'us-auxiliary'];
 ////////////////////////DEFINING COLOR PALETTE//////////////////////////
 
 //Base colors, slightly modified from perceptually uniform colors
@@ -200,6 +200,9 @@ map.on('style.load', () => {
     map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7]);
     map.setPaintProperty('us-70s-major', 'line-width', defaultLineWidth);
 	
+	map.setPaintProperty('us-30s-major', 'line-color', colors.signed.major.mainline[3]);
+    map.setPaintProperty('us-30s-major','line-width', defaultLineWidth);
+	
 	map.setPaintProperty('us-20s-major', 'line-color', colors.signed.major.mainline[2]);
     map.setPaintProperty('us-20s-major','line-width', defaultLineWidth);
 
@@ -213,6 +216,9 @@ map.on('style.load', () => {
 	//we will treat US 101 as a major route, and use the same coloration as US 1
 	map.setPaintProperty('us-101-major', 'line-color', colors.signed.major.mainline[0]);
     map.setPaintProperty('us-101-major','line-width', defaultLineWidth);
+	
+	map.setPaintProperty('us-40s-primary', 'line-color', colors.signed.primary.mainline[4]);
+    map.setPaintProperty('us-40s-primary', 'line-width', defaultLineWidth);
 	
 	map.setPaintProperty('us-10s-primary', 'line-color', colors.signed.primary.mainline[1]);
     map.setPaintProperty('us-10s-primary', 'line-width', defaultLineWidth);
