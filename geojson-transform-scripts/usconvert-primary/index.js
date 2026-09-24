@@ -17,6 +17,7 @@ const threeDigits = /[0-9]{3}/
 const twoDigits = / [0-9]{2}$| [0-9]{2} ?[A-Z]/
 const business = /[Bb][LSUu]/
 const alt = /[Aa][Ll][Tt]/
+const oneOhOne = /101/
 
 //Do everything below for each file included
 for (let i = 0; i < arrayLength; i++) {
@@ -71,6 +72,7 @@ for (let i = 0; i < arrayLength; i++) {
                 console.log("File is " + globalTier + " " + globalTensDigit + "0s")
                 break
               }
+
               else {
                 let numIndex = ref.indexOf("US ") + 3
                 let refNum = ref.slice(numIndex,numIndex + 1)
@@ -87,6 +89,14 @@ for (let i = 0; i < arrayLength; i++) {
                 break
               }
             }
+						  //Special case for US 101
+			 else if (ref.match(us) && ref.match(threeDigits) && !ref.match(business) && !ref.match(alt) && ref.match(oneOhOne ) ){
+				  globalTensDigit = 0
+				  globalTier = "major"
+				   console.log("File contains US 101")
+				   break
+				  
+			  }
           }            
         }
       }
@@ -159,7 +169,7 @@ for (let i = 0; i < arrayLength; i++) {
 
                 route.tensDigit = tensDigit
 
-                if (onesDigit == 5) {
+                if (onesDigit == 1) {
                   route.tier = "major"
                 }
                 else {
@@ -175,6 +185,15 @@ for (let i = 0; i < arrayLength; i++) {
                 iCount++
               }
             }
+			else if (ref.match(us) && ref.match(threeDigits) && !ref.match(business) && !ref.match(alt) && ref.match(oneOhOne ) ){
+				let route = {}
+				route.ref = ref
+				route.tensDigit = 0
+				route.tier = "major"
+				route.onesDigit = "odd"
+				props.routes[iCount] = route
+				iCount++
+			}
           }
         }
 
