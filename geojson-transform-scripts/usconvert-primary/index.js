@@ -162,7 +162,7 @@ for (let i = 0; i < arrayLength; i++) {
               }
               else {
 
-                let numIndex = ref.indexOf("US ") + 2
+                let numIndex = ref.indexOf("US ") + 3
                 let refNum = ref.slice(numIndex,numIndex + 1)
                 let tensDigit = 0
                 let onesDigit = Number(refNum.charAt(0))
