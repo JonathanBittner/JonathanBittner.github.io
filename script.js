@@ -854,6 +854,8 @@ function setMajorFilter() {
         map.setFilter("us-" + i + "0s-major", filters);
       }
     }
+		//US 101
+	map.setLayoutProperty("us-101-major", 'visibility', 'visible');
   }
 }
 
