@@ -832,6 +832,8 @@ function setMajorFilter() {
     for (let i = 0; i < 10; i++) {
       map.setLayoutProperty( "us-" + i + "0s-major", 'visibility', 'none' );
     }
+	//US 101
+	map.setLayoutProperty("us-101-major", 'visibility', 'none');
   }
   
   else {   
@@ -839,6 +841,7 @@ function setMajorFilter() {
       if (!document.getElementById("routes-" + i + "0").checked) {
         map.setLayoutProperty( "us-" + i + "0s-major", 'visibility', 'none' );
       }
+	  
       else {
         map.setLayoutProperty( "us-" + i + "0s-major", 'visibility', 'visible' );
    
@@ -848,7 +851,7 @@ function setMajorFilter() {
         if (document.getElementById("odd-routes").checked) {   
           filters[1].push(oddFilter)
         }
-        map.setFilter("i-" + i + "0s-major", filters);
+        map.setFilter("us-" + i + "0s-major", filters);
       }
     }
   }
