@@ -8,7 +8,7 @@ mapboxgl.accessToken =
 const defaultLineWidth = 2;
 
 //const layerList = ['triplex-interstates-0','triplex-interstates-1','triplex-interstates-2','duplex-us-0','duplex-us-1','i-90s-major','i-80s-major','i-70s-major','i-60s-major','i-50s-major','i-40s-major','i-30s-major','i-20s-major','i-10s-major','i-00s-major','i-90s-primary','i-80s-primary','i-70s-primary','i-60s-primary','i-50s-primary','i-40s-primary','i-30s-primary','i-20s-primary','i-10s-primary','i-00s-primary','auxiliary-interstates','unsigned-interstates','business-interstates','unsigned-business-interstates','future-interstates']
-const layerList = ['us-triplex-1', 'us-triplex-2', 'us-triplex-3', 'us-duplex-1',  'us-duplex-2', 'us-90s-major', 'us-80s-major', 'us-70s-major', 'us-30s-major', 'us-20s-major','us-10s-major', 'us-00s-major', 'us-40s-primary', 'us-20s-primary', 'us-10s-primary', 'us-00s-primary', 'us-auxiliary'];
+const layerList = ['us-quadruplex-1', 'us-quadruplex-2', 'us-quadruplex-3', 'us-quadruplex-4', 'us-triplex-1', 'us-triplex-2', 'us-triplex-3','us-duplex-1',  'us-duplex-2', 'us-90s-major', 'us-80s-major', 'us-70s-major', 'us-30s-major', 'us-20s-major','us-10s-major', 'us-00s-major', 'us-40s-primary', 'us-20s-primary', 'us-10s-primary', 'us-00s-primary', 'us-auxiliary'];
 ////////////////////////DEFINING COLOR PALETTE//////////////////////////
 
 //Base colors, slightly modified from perceptually uniform colors
@@ -299,95 +299,18 @@ map.on('style.load', () => {
 );
 ////////////////MAP LAYERS/////////////////////////////////////////////////////////  
 
-////////////////TRIPLEX INTERSTATES//////////////////////////////////////////////// 
   
-/*  map.addLayer({
-    id: "triplex-interstates-0",
-    type: "line",
-    source: "interstatesSecondary",
-    'source-layer': "triplex-interstates",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    paint: {
-      "line-color": ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]],
-      "line-offset": 0,
-      "line-width": ["*", 1, defaultLineWidth]
-    },
-    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"], ["==", ["get", "route2_role"], "mainline"]]
-    },"road-label");
+
   
-  map.addLayer({
-    id: "triplex-interstates-1",
-    type: "line",
-    source: "interstatesSecondary",
-    'source-layer': "triplex-interstates",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    paint: {
-      "line-color": ["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]],
-      "line-offset": ["*", 1, defaultLineWidth],
-      "line-width": ["*", 1, defaultLineWidth]
-    },
-    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"], ["==", ["get", "route2_role"], "mainline"]]
-    },"triplex-interstates-0");
+
   
-  map.addLayer({
-    id: "triplex-interstates-2",
-    type: "line",
-    source: "interstatesSecondary",
-    'source-layer': "triplex-interstates",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    paint: {
-      "line-color": ["string", ["at", ["get", "route2_tensDigit"], ["get", ["get", "route2_role"], ["get", ["get", "route2_tier"], ["get", ["get", "route2_status"], ["literal", colors]]]]]],
-      "line-offset": ["*", 2, defaultLineWidth],
-      "line-width": ["*", 1, defaultLineWidth]
-    },
-    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route2_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"], ["==", ["get", "route2_role"], "mainline"]]
-    },"triplex-interstates-1");
+
   
-  ////////////////DUPLEX INTERSTATES//////////////////////////////////////////////// 
+ 
   
-  map.addLayer({
-    id: "duplex-interstates-0",
-    type: "line",
-    source: "interstatesSecondary",
-    'source-layer': "duplex-interstates",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    paint: {
-     "line-color": ["string", ["at", ["get", "route0_tensDigit"], ["get", ["get", "route0_role"], ["get", ["get", "route0_tier"], ["get", ["get", "route0_status"], ["literal", colors]]]]]],
-      "line-offset": 0,
-      "line-width": ["*", 1, defaultLineWidth]
-    },
-    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]
-    },"triplex-interstates-2");
+
   
-    map.addLayer({
-    id: "duplex-interstates-1",
-    type: "line",
-    source: "interstatesSecondary",
-    'source-layer': "duplex-interstates",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round"
-    },
-    paint: {
-      "line-color": ["string", ["at", ["get", "route1_tensDigit"], ["get", ["get", "route1_role"], ["get", ["get", "route1_tier"], ["get", ["get", "route1_status"], ["literal", colors]]]]]],
-      "line-offset": ["*", 1, defaultLineWidth],
-      "line-width": ["*", 1, defaultLineWidth]
-    },
-    filter: ['all', ["==", ["get", "route0_status"], "signed"], ["==", ["get", "route1_status"], "signed"], ["==", ["get", "route0_role"], "mainline"], ["==", ["get", "route1_role"], "mainline"]]
-    },"duplex-interstates-0");
-    */
+
 
   ////////////////MAJOR INTERSTATES////////////////////////////////////////////////
       
@@ -1087,6 +1010,120 @@ function setFutureFilter() {
   map.setFilter("future-interstates", filters);
 }
 
+function setQuadruplexFilter() {
+  let signFilter = [['==', 'route0_status', "unsigned"], ['==', 'route1_status', "unsigned"], ['==', 'route2_status', "unsigned"],  ['==', 'route3_status', "unsigned"]]
+  let futureFilter = [['==', 'route0_status', "future"], ['==', 'route1_status', "future"], ['==', 'route2_status', "future"], ['==', 'route3_status', "future"]]
+  let businessFilter = [['==', 'route0_role', "business"], ['==', 'route1_role', "business"], ['==', 'route2_role', "business"], ['==', 'route3_role', "business"]]
+  let majorFilter = [['==', 'route0_tier', "major"], ['==', 'route1_tier', "major"], ['==', 'route2_tier', "major"], ['==', 'route3_tier', "major"]]
+  let primaryFilter = [['==', 'route0_tier', "primary"], ['==', 'route1_tier', "primary"], ['==', 'route2_tier', "primary"], ['==', 'route3_tier', "primary"]]
+  let auxiliaryFilter = [['==', 'route0_tier', "auxiliary"], ['==', 'route1_tier', "auxiliary"], ['==', 'route2_tier', "auxiliary"], ['==', 'route3_tier', "auxiliary"]]
+  let evenFilter = [['==', 'route0_onesDigit', "even"], ['==', 'route1_onesDigit', "even"], ['==', 'route2_onesDigit', "even"], ['==', 'route3_onesDigit', "even"]]
+  let oddFilter = [['==', 'route0_onesDigit', "odd"], ['==', 'route1_onesDigit', "odd"], ['==', 'route2_onesDigit', "odd"], ['==', 'route3_onesDigit', "odd"]]
+  let tensFilters = [
+    [['==', 'route0_tensDigit', 0], ['==', 'route1_tensDigit', 0], ['==', 'route2_tensDigit', 0], ['==', 'route3_tensDigit', 0]],
+    [['==', 'route0_tensDigit', 1], ['==', 'route1_tensDigit', 1], ['==', 'route2_tensDigit', 1], ['==', 'route3_tensDigit', 1]],
+    [['==', 'route0_tensDigit', 2], ['==', 'route1_tensDigit', 2], ['==', 'route2_tensDigit', 2], ['==', 'route3_tensDigit', 2]],
+    [['==', 'route0_tensDigit', 3], ['==', 'route1_tensDigit', 3], ['==', 'route2_tensDigit', 3], ['==', 'route3_tensDigit', 3]],
+    [['==', 'route0_tensDigit', 4], ['==', 'route1_tensDigit', 4], ['==', 'route2_tensDigit', 4], ['==', 'route3_tensDigit', 4]],
+    [['==', 'route0_tensDigit', 5], ['==', 'route1_tensDigit', 5], ['==', 'route2_tensDigit', 5], ['==', 'route3_tensDigit', 5]],
+    [['==', 'route0_tensDigit', 6], ['==', 'route1_tensDigit', 6], ['==', 'route2_tensDigit', 6], ['==', 'route3_tensDigit', 6]],
+    [['==', 'route0_tensDigit', 7], ['==', 'route1_tensDigit', 7], ['==', 'route2_tensDigit', 7], ['==', 'route3_tensDigit', 7]],
+    [['==', 'route0_tensDigit', 8], ['==', 'route1_tensDigit', 8], ['==', 'route2_tensDigit', 8], ['==', 'route3_tensDigit', 8]],
+    [['==', 'route0_tensDigit', 9], ['==', 'route1_tensDigit', 9], ['==', 'route2_tensDigit', 9], ['==', 'route3_tensDigit', 9]]
+  ]
+  let filters = ['all', ['any']]
+  
+  if (document.getElementById("unsigned-layers").checked) {
+    signFilter.splice(0, 0, 'any')
+    filters[filters.length - 1].push(signFilter)
+  }
+  else {
+    signFilter.splice(0, 0, 'none')
+    filters.splice(filters.length - 1, 0, signFilter)
+  }
+  
+  if (document.getElementById("future-layers").checked) {
+    futureFilter.splice(0, 0, 'any')
+    filters[filters.length - 1].push(futureFilter)
+  }
+  else {
+    futureFilter.splice(0, 0, 'none')
+    filters.splice(filters.length - 1, 0, futureFilter)
+  }  
+  
+  if (document.getElementById("business-layers").checked) {
+    businessFilter.splice(0, 0, 'any')
+    filters[filters.length - 1].push(businessFilter)
+  }
+  else {
+    businessFilter.splice(0, 0, 'none')
+    filters.splice(filters.length - 1, 0, businessFilter)
+  }
+
+  if (document.getElementById("major-layers").checked) {
+    majorFilter.splice(0, 0, 'any')
+    filters[filters.length - 1].push(majorFilter)
+  }
+  else {
+    majorFilter.splice(0, 0, 'none')
+    filters.splice(filters.length - 1, 0, majorFilter)
+  }
+  
+  if (document.getElementById("primary-layers").checked) {
+    primaryFilter.splice(0, 0, 'any')
+    filters[filters.length - 1].push(primaryFilter)
+  }
+  else {
+    primaryFilter.splice(0, 0, 'none')
+    filters.splice(filters.length - 1, 0, primaryFilter)
+  }
+
+  if (document.getElementById("auxiliary-layers").checked) {
+    auxiliaryFilter.splice(0, 0, 'any')
+    filters[filters.length - 1].push(auxiliaryFilter)
+  }
+  else {
+    auxiliaryFilter.splice(0, 0, 'none')
+    filters.splice(filters.length - 1, 0, auxiliaryFilter)
+  }
+  
+  if (document.getElementById("even-routes").checked) {
+    evenFilter.splice(0, 0, 'any')
+    filters[filters.length - 1].push(evenFilter)
+  }
+  else {
+    evenFilter.splice(0, 0, 'none')
+    filters.splice(filters.length - 1, 0, evenFilter)
+  }
+  
+  if (document.getElementById("odd-routes").checked) {
+    oddFilter.splice(0, 0, 'any')
+    filters[filters.length - 1].push(oddFilter)
+  }
+  else {
+    oddFilter.splice(0, 0, 'none')
+    filters.splice(filters.length - 1, 0, oddFilter)
+  }
+  
+  for (let i = 0; i < 10; i++) {
+    if (document.getElementById("routes-" + i + "0").checked) {
+      tensFilters[i].splice(0, 0, 'any')
+      filters[filters.length - 1].push(tensFilters[i])
+    }
+    else {
+      tensFilters[i].splice(0, 0, 'none')
+      filters.splice(filters.length - 1, 0, tensFilters[i])
+    }
+  }
+  
+  map.setFilter("us-quadruplex-1", filters);
+  map.setFilter("us-quadruplex-2", filters);
+  map.setFilter("us-quadruplex-3", filters);
+  map.setFilter("us-quadruplex-4", filters);
+}
+
+
+
 function setTriplexFilter() {
   let signFilter = [['==', 'route0_status', "unsigned"], ['==', 'route1_status', "unsigned"], ['==', 'route2_status', "unsigned"]]
   let futureFilter = [['==', 'route0_status', "future"], ['==', 'route1_status', "future"], ['==', 'route2_status', "future"]]
@@ -1321,24 +1358,28 @@ function setAllFilters() {
   setFutureFilter();
   setDuplexFilter();
   setTriplexFilter();
+  setQuadruplexFilter();
 }
 
 ////////////////Add event listeners to each checkbox to turn layers on and off when selected directly////////////
 
 document.getElementById("major-layers").addEventListener('change', function (e) {
   setMajorFilter();
+  setQuadruplexFilter();
   setTriplexFilter();
   setDuplexFilter();
 });
 
 document.getElementById("primary-layers").addEventListener('change', function (e) {
   setPrimaryFilter();
+  setQuadruplexFilter();
   setTriplexFilter();
   setDuplexFilter();
 });
 
 document.getElementById("auxiliary-layers").addEventListener('change', function (e) {
   setAuxiliaryFilter();
+  setQuadruplexFilter();
   setTriplexFilter();
   setDuplexFilter();
 });
@@ -1346,12 +1387,14 @@ document.getElementById("auxiliary-layers").addEventListener('change', function 
 document.getElementById("business-layers").addEventListener('change', function (e) {
   setBusinessFilter();
   setUnsignedBusinessFilter();
+  setQuadruplexFilter();
   setTriplexFilter();
   setDuplexFilter();
 });
 
 document.getElementById("future-layers").addEventListener('change', function (e) {
   setFutureFilter();
+  setQuadruplexFilter();
   setTriplexFilter();
   setDuplexFilter();
 });
@@ -1359,6 +1402,7 @@ document.getElementById("future-layers").addEventListener('change', function (e)
 document.getElementById("unsigned-layers").addEventListener('change', function (e) {
   setUnsignedFilter();
   setUnsignedBusinessFilter();
+  setQuadruplexFilter();
   setTriplexFilter();
   setDuplexFilter();
 });
