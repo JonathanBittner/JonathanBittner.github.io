@@ -11,7 +11,7 @@ const arrayLength = myArgs.length
 //Regular expression variables
 const us = /^US |B[LS] US/
 const threeDigits = /[0-9]{3}/
-const twoDigits = / [0-9]{2}$| [0-9]{2};|[0-9]{2}[- ]/
+const twoDigits = / [0-9]{2}$| [0-9]{2};|[0-9]{2}[- ]|[0-9][0-9][NSEW]/
 const business = /[Bb][LSUu]/
 const alt = /[Aa][Ll][Tt]/
 
@@ -95,9 +95,9 @@ for (let i = 0; i < arrayLength; i++) {
               }
 
               else if (ref.match(twoDigits)) {
-                
+				                  
                 let numIndex = ref.indexOf("US ") + 3
-                let refNum = ref.slice(numIndex,numIndex + 2)
+                let refNum = ref.slice(numIndex,numIndex + 2)				
                 let tensDigit = Number(refNum.charAt(0))
                 let onesDigit = Number(refNum.charAt(1))
 
