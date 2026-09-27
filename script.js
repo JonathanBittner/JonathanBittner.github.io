@@ -199,6 +199,9 @@ map.on('style.load', () => {
   
     map.setPaintProperty('us-70s-major', 'line-color', colors.signed.major.mainline[7]);
     map.setPaintProperty('us-70s-major', 'line-width', defaultLineWidth);
+
+	map.setPaintProperty('us-60s-major', 'line-color', colors.signed.major.mainline[6]);
+    map.setPaintProperty('us-60s-major', 'line-width', defaultLineWidth);
 	
 	map.setPaintProperty('us-50s-major', 'line-color', colors.signed.major.mainline[5]);
     map.setPaintProperty('us-50s-major','line-width', defaultLineWidth);
@@ -222,6 +225,12 @@ map.on('style.load', () => {
 	//we will treat US 101 as a major route, and use the same coloration as US 1; Note: now moved to 00s major
 	//map.setPaintProperty('us-101-major', 'line-color', colors.signed.major.mainline[0]);
     //map.setPaintProperty('us-101-major','line-width', defaultLineWidth);
+
+	map.setPaintProperty('us-70s-primary', 'line-color', colors.signed.primary.mainline[7]);
+    map.setPaintProperty('us-70s-primary', 'line-width', defaultLineWidth);
+	
+	map.setPaintProperty('us-60s-primary', 'line-color', colors.signed.primary.mainline[6]);
+    map.setPaintProperty('us-60s-primary', 'line-width', defaultLineWidth);
 	
 	map.setPaintProperty('us-40s-primary', 'line-color', colors.signed.primary.mainline[4]);
     map.setPaintProperty('us-40s-primary', 'line-width', defaultLineWidth);
