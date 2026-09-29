@@ -8,7 +8,9 @@ mapboxgl.accessToken =
 const defaultLineWidth = 2;
 
 //const layerList = ['triplex-interstates-0','triplex-interstates-1','triplex-interstates-2','duplex-us-0','duplex-us-1','i-90s-major','i-80s-major','i-70s-major','i-60s-major','i-50s-major','i-40s-major','i-30s-major','i-20s-major','i-10s-major','i-00s-major','i-90s-primary','i-80s-primary','i-70s-primary','i-60s-primary','i-50s-primary','i-40s-primary','i-30s-primary','i-20s-primary','i-10s-primary','i-00s-primary','auxiliary-interstates','unsigned-interstates','business-interstates','unsigned-business-interstates','future-interstates']
-const layerList = ['us-quadruplex-1', 'us-quadruplex-2', 'us-quadruplex-3', 'us-quadruplex-4', 'us-triplex-1', 'us-triplex-2', 'us-triplex-3','us-duplex-1',  'us-duplex-2', 'us-90s-major', 'us-80s-major', 'us-70s-major', 'us-30s-major', 'us-20s-major','us-10s-major', 'us-00s-major', 'us-40s-primary', 'us-20s-primary', 'us-10s-primary', 'us-00s-primary', 'us-auxiliary'];
+const layerList = ['us-quadruplex-1', 'us-quadruplex-2', 'us-quadruplex-3', 'us-quadruplex-4', 'us-triplex-1', 'us-triplex-2', 'us-triplex-3','us-duplex-1',  'us-duplex-2', 'us-90s-major', 'us-80s-major', 'us-70s-major', 'us-60s-major',
+	'us-50s-major', 'us-40s-major', 'us-30s-major', 'us-20s-major','us-10s-major', 'us-00s-major',
+	'us-80s-primary', 'us-70s-primary', 'us-40s-primary', 'us-30s-primary', 'us-20s-primary', 'us-10s-primary', 'us-00s-primary', 'us-auxiliary', 'us-business'];
 ////////////////////////DEFINING COLOR PALETTE//////////////////////////
 
 //Base colors, slightly modified from perceptually uniform colors
@@ -226,6 +228,9 @@ map.on('style.load', () => {
 	//map.setPaintProperty('us-101-major', 'line-color', colors.signed.major.mainline[0]);
     //map.setPaintProperty('us-101-major','line-width', defaultLineWidth);
 
+	map.setPaintProperty('us-80s-primary', 'line-color', colors.signed.primary.mainline[8]);
+    map.setPaintProperty('us-80s-primary', 'line-width', defaultLineWidth);
+	
 	map.setPaintProperty('us-70s-primary', 'line-color', colors.signed.primary.mainline[7]);
     map.setPaintProperty('us-70s-primary', 'line-width', defaultLineWidth);
 	
@@ -234,6 +239,9 @@ map.on('style.load', () => {
 	
 	map.setPaintProperty('us-40s-primary', 'line-color', colors.signed.primary.mainline[4]);
     map.setPaintProperty('us-40s-primary', 'line-width', defaultLineWidth);
+	
+	map.setPaintProperty('us-30s-primary', 'line-color', colors.signed.primary.mainline[2]);
+    map.setPaintProperty('us-30s-primary', 'line-width', defaultLineWidth);
 	
 	map.setPaintProperty('us-20s-primary', 'line-color', colors.signed.primary.mainline[2]);
     map.setPaintProperty('us-20s-primary', 'line-width', defaultLineWidth);
@@ -299,6 +307,9 @@ map.on('style.load', () => {
 	map.setPaintProperty('us-quadruplex-4',  "line-color",["string", ["at", ["get", "route3_tensDigit"], ["get", ["get", "route3_role"], ["get", ["get", "route3_tier"], ["get", ["get", "route3_status"], ["literal", colors]]]]]]);
     map.setPaintProperty('us-quadruplex-4', "line-offset", ["*", 3, defaultLineWidth]);
     map.setPaintProperty('us-quadruplex-4',"line-width", ["*", 1, defaultLineWidth]);
+	
+	map.setPaintProperty("us-business", "line-color", ["string", ["at", ["get", "routeTensDigit"], ["literal", businessColors]]]);
+	map.setPaintProperty("us-business", "line-width", defaultLineWidth);
 
 	
 	
@@ -893,7 +904,7 @@ function setBusinessFilter() {
       busKeyCol[i].classList.add('hidden')
     }
     
-    map.setLayoutProperty( "business-interstates", 'visibility', 'none' )
+    map.setLayoutProperty( "us-business", 'visibility', 'none' )
   }
   
   else {
@@ -904,7 +915,7 @@ function setBusinessFilter() {
         busKeyCol[i].classList.remove('hidden')
       }
     
-    map.setLayoutProperty( "business-interstates", 'visibility', 'visible' )
+    map.setLayoutProperty( "us-business", 'visibility', 'visible' )
     
     if (document.getElementById("even-routes").checked) {   
       filters[1].push(evenFilter)
@@ -918,7 +929,7 @@ function setBusinessFilter() {
       }
     }
   }
-  map.setFilter("business-interstates", filters);
+  map.setFilter("us-business", filters);
 }
  
 function setUnsignedFilter() {
