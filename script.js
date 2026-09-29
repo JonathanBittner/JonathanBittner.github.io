@@ -240,7 +240,7 @@ map.on('style.load', () => {
 	map.setPaintProperty('us-40s-primary', 'line-color', colors.signed.primary.mainline[4]);
     map.setPaintProperty('us-40s-primary', 'line-width', defaultLineWidth);
 	
-	map.setPaintProperty('us-30s-primary', 'line-color', colors.signed.primary.mainline[2]);
+	map.setPaintProperty('us-30s-primary', 'line-color', colors.signed.primary.mainline[3]);
     map.setPaintProperty('us-30s-primary', 'line-width', defaultLineWidth);
 	
 	map.setPaintProperty('us-20s-primary', 'line-color', colors.signed.primary.mainline[2]);
