@@ -12,7 +12,7 @@ const arrayLength = myArgs.length
 const us = /^US |B[Uu][Ss] US/
 const threeDigits = /[0-9]{3}/
 const twoDigits = /US [0-9]{2}[-]*[A-Z]* | [0-9]{2}$/
-const business = /[Bb][Uu][Ss]|[Bb][Yy]|[Aa][Ll][Tt]/
+const business = /[Bb][Uu][Ss]|[Bb][Yy]|[Aa][Ll][Tt]|A$/
 
 //Do everything below for each file included
 for (let i = 0; i < arrayLength; i++) {
