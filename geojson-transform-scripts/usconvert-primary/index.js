@@ -72,14 +72,14 @@ for (let i = 0; i < arrayLength; i++) {
                 console.log("File is " + globalTier + " " + globalTensDigit + "0s")
                 break
               }
-
+				//single digit highways
               else {
                 let numIndex = ref.indexOf("US ") + 3
                 let refNum = ref.slice(numIndex,numIndex + 1)
                 globalTensDigit = 0
                 let onesDigit = Number(refNum.charAt(0))
-
-                if (onesDigit == 1) {
+				//let US 2 be major
+                if (onesDigit == 1 || onesDigit == 2) {
                   globalTier = "major"
                 }
                 else {
@@ -169,7 +169,7 @@ for (let i = 0; i < arrayLength; i++) {
 
                 route.tensDigit = tensDigit
 
-                if (onesDigit == 1) {
+                if (onesDigit == 1 || onesDigit == 2) {
                   route.tier = "major"
                 }
                 else {
