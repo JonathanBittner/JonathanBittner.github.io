@@ -179,7 +179,7 @@ for (let i = 0; i < arrayLength; i++) {
         delete data.features[j]        
       }
       else if (props.routes.length > 3){
-        console.log("More than three refs")
+         console.log("More than three refs: " + props.ref)
       }
       else if (props.routes.length < 2){
         delete data.features[j]

@@ -224,8 +224,8 @@ for (let i = 0; i < arrayLength; i++) {
         }
         
       }
-      else if (props.routes.length > 3){
-        console.log("More than three refs")
+      else if (props.routes.length > 2){
+          console.log("More than two refs: " + props.ref)
       }
       else if (props.routes.length < 2){
         delete data.features[j]
