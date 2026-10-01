@@ -52,8 +52,9 @@ for (let i = 0; i < arrayLength; i++) {
             let ref = refArray[k]
 
             //Check to make sure the substring is a mainline interstate with three digits
-            if (ref.match(us) && !ref.match(alt)){
-              
+            //if (ref.match(us) && !ref.match(alt)){
+			//for US highways we won't exclude alternates, but will treat them like business routes
+            if (ref.match(us)) {   
               let route = {}
               route["name"] = ref
 
