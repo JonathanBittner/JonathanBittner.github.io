@@ -9,11 +9,11 @@ const myArgs = process.argv.slice(2);
 const arrayLength = myArgs.length
 
 //Regular expression variables
-const us = /^US |B[LS] US/
+const us = /^US |BUS US/
 const threeDigits = /[0-9]{3}/
-const twoDigits = / [0-9]{2}$| [0-9]{2};|[0-9]{2}[- ]/
+const twoDigits = / [0-9]{2}$| [0-9]{2};|[0-9]{2}[- ]|[0-9][0-9][NSEW]/
 const business = /[Bb][LSUu]/
-const alt = /[Aa][Ll][Tt]/
+const alt = /[Aa][Ll][Tt]| [0-9]{1,3}A| T[Rr][Uu][Cc][Kk]/
 
 //Do everything below for each file included
 for (let i = 0; i < arrayLength; i++) {
@@ -69,7 +69,7 @@ for (let i = 0; i < arrayLength; i++) {
               }
 
               //Set refs[n].role for each
-              if (ref.match(business)){
+              if (ref.match(business) || ref.match(alt)){
                 route["role"] = "business"
               }
               else {
