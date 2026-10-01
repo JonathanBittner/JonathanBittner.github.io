@@ -11,8 +11,10 @@ const arrayLength = myArgs.length
 //Regular expression variables
 const us = /^US |BUS US/
 const threeDigits = /[0-9]{3}/
-const twoDigits = / [0-9]{2}$| [0-9]{2};|[0-9]{2}[- ]|[0-9][0-9][NSEW]/
-const business = /[Bb][LSUu]/
+const twoDigits = / [0-9]{2}$| [0-9]{2};|[0-9]{2}[- ]|[0-9]{2}[A-Z]/
+//business and bypass routes
+const business = /[Bb][LSUu]| [Bb][Yy][Pp]/
+// alt routes, A suffixed routes, Truck routes
 const alt = /[Aa][Ll][Tt]| [0-9]{1,3}A| T[Rr][Uu][Cc][Kk]/
 
 //Do everything below for each file included
@@ -52,7 +54,9 @@ for (let i = 0; i < arrayLength; i++) {
             let ref = refArray[k]
 
             //Check to make sure the substring is a mainline interstate with three digits
-            if (ref.match(us) && !ref.match(alt)){
+            //if (ref.match(us) && !ref.match(alt)){
+			      //for US highways we won't exclude alternates, but will treat them like business routes
+            if (ref.match(us)) { 
               
               let route = {}
               route["name"] = ref
