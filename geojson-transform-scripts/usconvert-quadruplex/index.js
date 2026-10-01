@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 //iconvert-triplex
+//do quads and quints
 
 //Variables to reference the file(s)
 const fs = require('fs')
@@ -176,11 +177,23 @@ for (let i = 0; i < arrayLength; i++) {
         }
 
       }
+	  else if (props.routes.length == 5){
+        for (let k = 0; k < 5; k++) {
+		  console.log("We have a QUINT!!!: " + props.ref)
+          data.features[j].properties["route" + k + "_ref"] = props.routes[k].name
+          data.features[j].properties["route" + k + "_status"] = props.routes[k].status
+          data.features[j].properties["route" + k + "_role"] = props.routes[k].role
+          data.features[j].properties["route" + k + "_tensDigit"] = props.routes[k].tensDigit
+          data.features[j].properties["route" + k + "_onesDigit"] = props.routes[k].onesDigit
+          data.features[j].properties["route" + k + "_tier"] = props.routes[k].tier
+        }
+
+      }
       else if (props.routes.length == 3) {
         delete data.features[j]        
       }
-      else if (props.routes.length > 4){
-        console.log("More than four refs")
+      else if (props.routes.length > 5){
+        console.log("More than five refs " + props.ref)
       }
       else if (props.routes.length < 3){
         delete data.features[j]
