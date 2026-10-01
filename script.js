@@ -747,7 +747,7 @@ let filterList = [
   {'id': 'major-layers', 'name': "Major Primary Routes",'group': '#filter-group-type .col1', 'checked': true},
   {'id': 'primary-layers', 'name': "Other Primary Routes",'group': '#filter-group-type .col1', 'checked': true},
   {'id': 'auxiliary-layers', 'name': "Auxiliary Routes",'group': '#filter-group-type .col1', 'checked': true},
-  {'id': 'business-layers', 'name': "Business Routes",'group': '#filter-group-type .col2', 'checked': false},
+  {'id': 'business-layers', 'name': "Special Routes (Business/Bypass/Alternate/Truck)",'group': '#filter-group-type .col2', 'checked': false},
   {'id': 'unsigned-layers', 'name': "Unsigned Routes",'group': '#filter-group-type .col2', 'checked': false},
   {'id': 'future-layers', 'name': "Future Routes",'group': '#filter-group-type .col2', 'checked': false},
   {'id': 'even-routes', 'name': "Even Route Numbers",'group': '#filter-group-number .row1', 'checked': true},
